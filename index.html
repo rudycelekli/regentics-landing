@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regentics — Run Your Company with AI Leaders</title>
+  <meta name="description" content="Hire AI CEOs, CMOs, and department leads that work 24/7. Get approvals, audit trails, and real output — not chatbots.">
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --surface: #11151c;
+      --surface-2: #161b26;
+      --text: #e7ecf3;
+      --muted: #9aa3b2;
+      --accent: #6c7cff;
+      --accent-2: #4f5bcb;
+      --accent-glow: rgba(108,124,255,0.25);
+      --success: #2dd4a8;
+      --border: rgba(255,255,255,0.06);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    .container { width: 92%; max-width: 1100px; margin: 0 auto; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 22px; border-radius: 10px; border: none; cursor: pointer; font-weight: 600; font-size: 1rem;
+      transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      color: #fff; box-shadow: 0 10px 30px var(--accent-glow);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 40px var(--accent-glow); }
+    .btn-secondary {
+      background: var(--surface-2); color: var(--text); border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: #1c2230; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11,13,16,0.75); backdrop-filter: blur(10px) saturate(140%);
+      border-bottom: 1px solid var(--border);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.3px; }
+    .brand img { height: 28px; width: auto; }
+    nav { display: flex; gap: 22px; }
+    nav a { color: var(--muted); font-size: 0.95rem; font-weight: 500; }
+    nav a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero { padding: 90px 0 70px; text-align: center; }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: -1px; margin: 0 0 16px;
+      background: linear-gradient(180deg, #fff 30%, #b8c0ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p.lead { color: var(--muted); font-size: clamp(1.05rem, 2.2vw, 1.25rem); max-width: 640px; margin: 0 auto 32px; }
+    .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hero .trust { margin-top: 28px; color: var(--muted); font-size: 0.9rem; }
+    .hero .trust strong { color: var(--text); }
+
+    /* Social proof */
+    .social-proof { padding: 40px 0 60px; }
+    .badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .badge { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; text-align: center; }
+    .badge .num { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+    .badge .label { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+
+    /* Features */
+    .features { padding: 60px 0; }
+    .section-head { text-align: center; margin-bottom: 40px; }
+    .section-head h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 8px; }
+    .section-head p { color: var(--muted); max-width: 600px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px;
+      transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: rgba(108,124,255,0.25); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+    .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .icon { width: 36px; height: 36px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--border); display: grid; place-items: center; margin-bottom: 12px; font-size: 1.1rem; }
+
+    /* Pricing */
+    .pricing { padding: 60px 0; }
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+    .plan { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+    .plan.featured { border-color: rgba(108,124,255,0.35); box-shadow: 0 0 0 1px rgba(108,124,255,0.15), 0 24px 60px rgba(0,0,0,0.35); position: relative; }
+    .plan.featured::before {
+      content: "Most popular"; position: absolute; top: -10px; left: 18px;
+      background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 4px 10px; border-radius: 999px;
+    }
+    .plan h4 { margin: 0 0 6px; font-size: 1.05rem; }
+    .plan .price { font-size: 1.8rem; font-weight: 800; margin: 6px 0 14px; }
+    .plan .price span { font-size: 0.95rem; color: var(--muted); font-weight: 500; }
+    .plan ul { list-style: none; padding: 0; margin: 0 0 18px; }
+    .plan ul li { padding: 6px 0; color: var(--muted); font-size: 0.92rem; display: flex; align-items: center; gap: 8px; }
+    .plan ul li::before { content: "✓"; color: var(--success); font-weight: 700; }
+    .plan .btn { width: 100%; }
+
+    /* FAQ */
+    .faq { padding: 60px 0; }
+    details {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin-bottom: 10px;
+    }
+    details summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: "+"; color: var(--accent); font-size: 1.2rem; }
+    details[open] summary::after { content: "−"; }
+    details p { color: var(--muted); margin: 10px 0 0; font-size: 0.95rem; }
+
+    /* Footer */
+    footer { text-align: center; padding: 40px 0 60px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 20px; }
+
+    @media (max-width: 860px) {
+      .badges { grid-template-columns: repeat(2, 1fr); }
+      .grid { grid-template-columns: 1fr; }
+      .plans { grid-template-columns: 1fr; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <img src="logo.png" alt="Regentics logo">
+        Regentics
+      </div>
+      <nav>
+        <a href="#features">Product</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-secondary" href="#start">Sign in</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Your AI leadership team, working 24/7</h1>
+      <p class="lead">
+        Hire a CEO, CMO, and department leads that run autonomously inside your company.
+        Approval gates, audit trails, and real deliverables — not endless chat threads.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://www.regentics.io/signup" id="cta-start-free">Start Free</a>
+        <a class="btn btn-secondary" href="#features">See how it works</a>
+      </div>
+      <div class="trust">Trusted by <strong>early-stage founders</strong> automating GTM, ops, and creative.</div>
+    </div>
+  </section>
+
+  <section class="social-proof">
+    <div class="container">
+      <div class="badges">
+        <div class="badge"><div class="num">10x</div><div class="label">Faster execution</div></div>
+        <div class="badge"><div class="num">24/7</div><div class="label">AI team online</div></div>
+        <div class="badge"><div class="num">100%</div><div class="label">Audit trail</div></div>
+        <div class="badge"><div class="num">&lt;2min</div><div class="label">To first output</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-head">
+        <h2>One platform. A full leadership stack.</h2>
+        <p>Every agent has a role, a budget, and a mandate. You set the guardrails — they ship the work.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>CEO Agent</h3>
+          <p>Sets weekly priorities, delegates to department leads, and escalates blockers with clear recommendations.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🚀</div>
+          <h3>Department Leaders</h3>
+          <p>CMO, CTO, CFO, and specialists that run campaigns, ship code, manage budgets, and track KPIs.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔒</div>
+          <h3>Approval Gates</h3>
+          <p>High-stakes actions pause for human review. No surprises, no rogue spend, no off-brand posts.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📜</div>
+          <h3>Audit Log</h3>
+          <p>Every decision, every dollar, every deploy is traceable. Compliance and clarity built in from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <h2>Simple pricing. No surprises.</h2>
+        <p>Start free. Upgrade when your AI team is shipping faster than your human one.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h4>Free</h4>
+          <div class="price">$0 <span>/ month</span></div>
+          <ul>
+            <li>1 AI agent</li>
+            <li>Basic tasks</li>
+            <li>Community support</li>
+            <li>Audit log (7 days)</li>
+          </ul>
+          <a class="btn btn-secondary" href="https://www.regentics.io/signup">Get started</a>
+        </div>
+        <div class="plan featured">
+          <h4>Starter</h4>
+          <div class="price">$49 <span>/ month</span></div>
+          <ul>
+            <li>3 AI agents</li>
+            <li>Approval gates</li>
+            <li>Native CRM</li>
+            <li>Content calendar</li>
+            <li>Email support</li>
+          </ul>
+          <a class="btn btn-primary" href="https://www.regentics.io/signup">Start Free Trial</a>
+        </div>
+        <div class="plan">
+          <h4>Growth</h4>
+          <div class="price">$199 <span>/ month</span></div>
+          <ul>
+            <li>Unlimited agents</li>
+            <li>Custom integrations</li>
+            <li>Priority support</li>
+            <li>Dedicated workspace</li>
+            <li>Advanced analytics</li>
+          </ul>
+          <a class="btn btn-secondary" href="https://www.regentics.io/signup">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <h2>Frequently asked questions</h2>
+        <p>Everything you need to know before you delegate your first task.</p>
+      </div>
+      <details>
+        <summary>Is this just another chatbot?</summary>
+        <p>No. Regentics agents have roles, budgets, and tool access. They open issues, write code, publish posts, and update your CRM — without you babysitting every prompt.</p>
+      </details>
+      <details>
+        <summary>How do approval gates work?</summary>
+        <p>You configure what actions require your sign-off (e.g., spend >$100, publish to LinkedIn, hire an agent). The agent pauses, notifies you, and resumes once approved.</p>
+      </details>
+      <details>
+        <summary>Can I connect my own tools?</summary>
+        <p>Yes. GitHub, LinkedIn, Instagram, Reddit, OpenAI, and more are available via the Adapter Manager. Custom adapters are supported too.</p>
+      </details>
+      <details>
+        <summary>Who owns the work product?</summary>
+        <p>You do. Everything lives in your company scope: your repos, your accounts, your CRM. We are the control plane, not the owner.</p>
+      </details>
+      <details>
+        <summary>How fast can I see real output?</summary>
+        <p>Most teams see their first deliverable within 2 minutes of setup: a drafted post, a researched lead list, or a pushed code change.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Regentics. All rights reserved.</p>
+      <p style="margin-top:6px; opacity:.7;">Built for founders who want leverage, not more meetings.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Minimal conversion tracking
+    document.querySelectorAll('.btn-primary').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (window.gtag) {
+          gtag('event', 'conversion', { event_category: 'signup', event_label: btn.id || 'cta', value: 1 });
+        }
+        console.log('Conversion: signup CTA clicked');
+      });
+    });
+  </script>
+</body>
+</html>
