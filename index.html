@@ -232,6 +232,63 @@
     }
     .demo-frame img, .demo-frame video, .demo-frame iframe { width: 100%; height: 100%; object-fit: cover; border: none; }
 
+    /* Animated product mockup */
+    .product-mockup {
+      width: 100%; height: 100%; background: var(--bg);
+      display: grid; grid-template-columns: 180px 1fr; gap: 0;
+      font-size: 0.85rem;
+    }
+    .mockup-sidebar {
+      background: var(--surface); border-right: 1px solid var(--border);
+      padding: 16px; display: flex; flex-direction: column; gap: 8px;
+    }
+    .mockup-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 12px; }
+    .mockup-logo .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .mockup-nav-item {
+      padding: 8px 10px; border-radius: 8px; color: var(--muted);
+      animation: navPulse 4s ease-in-out infinite;
+    }
+    .mockup-nav-item.active { background: var(--surface-2); color: var(--text); }
+    .mockup-main { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+    .mockup-header { font-size: 1.1rem; font-weight: 700; }
+    .mockup-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .mockup-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 14px; animation: cardFade 5s ease-in-out infinite;
+    }
+    .mockup-card .label { color: var(--muted); font-size: 0.75rem; margin-bottom: 4px; }
+    .mockup-card .value { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
+    .mockup-queue {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 14px; flex: 1;
+    }
+    .mockup-queue-item {
+      display: flex; align-items: center; gap: 10px; padding: 10px;
+      border-bottom: 1px solid var(--border); animation: queueSlide 6s ease-in-out infinite;
+    }
+    .mockup-status {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .mockup-status.pending { background: #f59e0b; animation: pulse 2s infinite; }
+    .mockup-status.approved { background: var(--success); }
+    @keyframes navPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    @keyframes cardFade {
+      0%, 100% { opacity: 0.7; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-3px); }
+    }
+    @keyframes queueSlide {
+      0%, 100% { transform: translateX(0); opacity: 1; }
+      25% { transform: translateX(6px); opacity: 0.8; }
+      50% { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.7; }
+    }
+
     /* Features */
     .features { padding: 60px 0; }
     .section-head { text-align: center; margin-bottom: 40px; }
@@ -297,6 +354,10 @@
       .steps { grid-template-columns: 1fr; }
       .quotes { grid-template-columns: 1fr; }
       nav { display: none; }
+      .product-mockup { grid-template-columns: 60px 1fr; }
+      .mockup-sidebar { padding: 10px; }
+      .mockup-nav-item { font-size: 0.7rem; padding: 6px; }
+      .mockup-logo { display: none; }
     }
   </style>
 
@@ -313,7 +374,7 @@
   <header>
     <div class="container">
       <div class="brand">
-        <img src="logo.png" alt="Regentics logo" width="28" height="28">
+        <img src="logo.png" alt="Regentics logo" width="28" height="28" loading="lazy" decoding="async">
         Regentics
       </div>
       <nav>
@@ -381,13 +442,32 @@
     <div class="container">
       <div class="section-head">
         <h2>See Regentics in action</h2>
-        <p>Watch a 90-second walkthrough of a real AI company running inside Regentics.</p>
+        <p>Your AI company dashboard — live approvals, active agents, and real output.</p>
       </div>
       <div class="demo-frame">
-        <!-- Replace src with your demo video, GIF, or Loom embed -->
-        <div style="text-align:center;">
-          <p style="margin:0 0 8px;">🎬 Demo video coming soon</p>
-          <p style="margin:0; font-size:0.9rem;">Add a Loom, YouTube, or self-hosted MP4 here.</p>
+        <div class="product-mockup" aria-label="Animated product dashboard preview">
+          <div class="mockup-sidebar">
+            <div class="mockup-logo"><div class="dot"></div>Regentics</div>
+            <div class="mockup-nav-item active">Dashboard</div>
+            <div class="mockup-nav-item">Issues</div>
+            <div class="mockup-nav-item">Calendar</div>
+            <div class="mockup-nav-item">CRM</div>
+            <div class="mockup-nav-item">Agents</div>
+          </div>
+          <div class="mockup-main">
+            <div class="mockup-header">Company Overview</div>
+            <div class="mockup-cards">
+              <div class="mockup-card"><div class="label">Active agents</div><div class="value">7</div></div>
+              <div class="mockup-card"><div class="label">Tasks today</div><div class="value">47</div></div>
+              <div class="mockup-card"><div class="label">Pending approvals</div><div class="value">3</div></div>
+            </div>
+            <div class="mockup-queue">
+              <div style="font-weight:700; margin-bottom:10px;">Approval Queue</div>
+              <div class="mockup-queue-item"><div class="mockup-status pending"></div><div>Review landing page copy</div></div>
+              <div class="mockup-queue-item"><div class="mockup-status approved"></div><div>Approve LinkedIn post</div></div>
+              <div class="mockup-queue-item"><div class="mockup-status pending"></div><div>Hire AI designer</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -533,13 +613,68 @@
   </footer>
 
   <script>
-    // Minimal conversion tracking
-    document.querySelectorAll('.btn-primary').forEach(function(btn) {
+    // Analytics: scroll depth tracking
+    (function() {
+      var depths = [25, 50, 75, 100];
+      var triggered = {};
+      function checkScroll() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var pct = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
+        depths.forEach(function(d) {
+          if (pct >= d && !triggered[d]) {
+            triggered[d] = true;
+            if (window.gtag) {
+              gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: d + '%', value: d });
+            }
+            console.log('Scroll depth: ' + d + '%');
+          }
+        });
+      }
+      window.addEventListener('scroll', checkScroll, { passive: true });
+      checkScroll();
+    })();
+
+    // Analytics: section visibility tracking
+    (function() {
+      var sections = ['#how-it-works', '#demo', '#features', '#testimonials', '#pricing', '#faq'];
+      var seen = {};
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !seen[entry.target.id]) {
+            seen[entry.target.id] = true;
+            if (window.gtag) {
+              gtag('event', 'section_view', { event_category: 'engagement', event_label: entry.target.id });
+            }
+            console.log('Section viewed: ' + entry.target.id);
+          }
+        });
+      }, { threshold: 0.3 });
+      sections.forEach(function(sel) {
+        var el = document.querySelector(sel);
+        if (el) observer.observe(el);
+      });
+    })();
+
+    // Analytics: CTA and interaction tracking
+    document.querySelectorAll('.btn-primary, .btn-secondary').forEach(function(btn) {
       btn.addEventListener('click', function() {
+        var label = btn.id || btn.textContent.trim().substring(0, 40);
+        var category = btn.classList.contains('btn-primary') ? 'conversion' : 'interaction';
         if (window.gtag) {
-          gtag('event', 'conversion', { event_category: 'signup', event_label: btn.id || 'cta', value: 1 });
+          gtag('event', 'cta_click', { event_category: category, event_label: label, value: 1 });
         }
-        console.log('Conversion: signup CTA clicked');
+        console.log('CTA clicked: ' + label);
+      });
+    });
+
+    // Analytics: FAQ open tracking
+    document.querySelectorAll('details').forEach(function(detail) {
+      detail.addEventListener('toggle', function() {
+        if (detail.open && window.gtag) {
+          var q = detail.querySelector('summary').textContent.trim();
+          gtag('event', 'faq_open', { event_category: 'engagement', event_label: q });
+        }
       });
     });
   </script>
