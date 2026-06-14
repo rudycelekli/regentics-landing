@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /auth
+Disallow: /signup
+Disallow: /api/
+Sitemap: https://www.regentics.io/sitemap.xml
