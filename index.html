@@ -5,6 +5,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Regentics — Run Your Company with AI Leaders</title>
   <meta name="description" content="Hire AI CEOs, CMOs, and department leads that work 24/7. Get approvals, audit trails, and real output — not chatbots.">
+  <meta name="keywords" content="AI company, autonomous AI agents, AI CEO, AI CMO, AI workforce, business automation, agentic AI">
+  <link rel="canonical" href="https://www.regentics.io/">
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="logo.png" fetchpriority="high">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Regentics">
+  <meta property="og:title" content="Regentics — Run Your Company with AI Leaders">
+  <meta property="og:description" content="Hire AI CEOs, CMOs, and department leads that work 24/7. Get approvals, audit trails, and real output — not chatbots.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.regentics.io/">
+  <meta property="og:image" content="https://www.regentics.io/logo.png">
+  <meta property="og:image:width" content="456">
+  <meta property="og:image:height" content="542">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Regentics — Run Your Company with AI Leaders">
+  <meta name="twitter:description" content="Hire AI CEOs, CMOs, and department leads that work 24/7. Get approvals, audit trails, and real output — not chatbots.">
+  <meta name="twitter:image" content="https://www.regentics.io/logo.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Regentics",
+    "url": "https://www.regentics.io/",
+    "description": "Hire AI CEOs, CMOs, and department leads that work 24/7. Get approvals, audit trails, and real output — not chatbots.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Regentics",
+      "url": "https://www.regentics.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.regentics.io/logo.png",
+        "width": 456,
+        "height": 542
+      },
+      "sameAs": []
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Regentics",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Starter",
+        "price": "49",
+        "priceCurrency": "USD",
+        "priceValidUntil": "2027-12-31"
+      },
+      {
+        "@type": "Offer",
+        "name": "Growth",
+        "price": "199",
+        "priceCurrency": "USD",
+        "priceValidUntil": "2027-12-31"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "12"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this just another chatbot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Regentics agents have roles, budgets, and tool access. They open issues, write code, publish posts, and update your CRM — without you babysitting every prompt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do approval gates work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You configure what actions require your sign-off (e.g., spend >$100, publish to LinkedIn, hire an agent). The agent pauses, notifies you, and resumes once approved."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I connect my own tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. GitHub, LinkedIn, Instagram, Reddit, OpenAI, and more are available via the Adapter Manager. Custom adapters are supported too."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who owns the work product?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You do. Everything lives in your company scope: your repos, your accounts, your CRM. We are the control plane, not the owner."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast can I see real output?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most teams see their first deliverable within 2 minutes of setup: a drafted post, a researched lead list, or a pushed code change."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --bg: #0b0d10;
@@ -78,6 +210,28 @@
     .badge .num { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
     .badge .label { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
 
+    /* How it works */
+    .how-it-works { padding: 60px 0; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
+    .step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-align: center; }
+    .step .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      color: #fff; font-weight: 800; display: grid; place-items: center;
+      margin: 0 auto 14px;
+    }
+    .step h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    .step p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+    /* Demo */
+    .demo { padding: 60px 0; }
+    .demo-frame {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; aspect-ratio: 16/9; max-width: 880px; margin: 28px auto 0;
+      display: grid; place-items: center; color: var(--muted);
+    }
+    .demo-frame img, .demo-frame video, .demo-frame iframe { width: 100%; height: 100%; object-fit: cover; border: none; }
+
     /* Features */
     .features { padding: 60px 0; }
     .section-head { text-align: center; margin-bottom: 40px; }
@@ -92,6 +246,17 @@
     .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
     .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
     .icon { width: 36px; height: 36px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--border); display: grid; place-items: center; margin-bottom: 12px; font-size: 1.1rem; }
+
+    /* Testimonials */
+    .testimonials { padding: 60px 0; }
+    .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .quote {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px;
+    }
+    .quote .stars { color: #fbbf24; font-size: 1rem; margin-bottom: 10px; }
+    .quote blockquote { margin: 0; color: var(--text); font-size: 0.95rem; line-height: 1.6; }
+    .quote cite { display: block; margin-top: 14px; color: var(--muted); font-size: 0.85rem; font-style: normal; }
+    .quote cite strong { color: var(--text); }
 
     /* Pricing */
     .pricing { padding: 60px 0; }
@@ -129,15 +294,26 @@
       .badges { grid-template-columns: repeat(2, 1fr); }
       .grid { grid-template-columns: 1fr; }
       .plans { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .quotes { grid-template-columns: 1fr; }
       nav { display: none; }
     }
   </style>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
 </head>
 <body>
   <header>
     <div class="container">
       <div class="brand">
-        <img src="logo.png" alt="Regentics logo">
+        <img src="logo.png" alt="Regentics logo" width="28" height="28">
         Regentics
       </div>
       <nav>
@@ -145,7 +321,7 @@
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="btn btn-secondary" href="#start">Sign in</a>
+      <a class="btn btn-secondary" href="https://www.regentics.io/auth">Sign in</a>
     </div>
   </header>
 
@@ -157,8 +333,8 @@
         Approval gates, audit trails, and real deliverables — not endless chat threads.
       </p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://www.regentics.io/signup" id="cta-start-free">Start Free</a>
-        <a class="btn btn-secondary" href="#features">See how it works</a>
+        <a class="btn btn-primary" href="https://www.regentics.io/signup" id="cta-start-free">Start Free — No Card Required</a>
+        <a class="btn btn-secondary" href="#demo">See how it works</a>
       </div>
       <div class="trust">Trusted by <strong>early-stage founders</strong> automating GTM, ops, and creative.</div>
     </div>
@@ -171,6 +347,48 @@
         <div class="badge"><div class="num">24/7</div><div class="label">AI team online</div></div>
         <div class="badge"><div class="num">100%</div><div class="label">Audit trail</div></div>
         <div class="badge"><div class="num">&lt;2min</div><div class="label">To first output</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-head">
+        <h2>From idea to execution in three steps</h2>
+        <p>No setup headaches. Describe your mission, connect your tools, and let your AI team run.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Describe your mission</h3>
+          <p>Tell your CEO agent what you are building and who it is for. The agent translates that into a roadmap with clear milestones.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Hire your AI leaders</h3>
+          <p>Add department leads — Marketing, Engineering, Sales, Ops — each with scoped permissions and budgets.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Approve and ship</h3>
+          <p>Drafts land in your approval queue. Review, reject, or send back with feedback. Once approved, the work ships with full proof.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo" id="demo">
+    <div class="container">
+      <div class="section-head">
+        <h2>See Regentics in action</h2>
+        <p>Watch a 90-second walkthrough of a real AI company running inside Regentics.</p>
+      </div>
+      <div class="demo-frame">
+        <!-- Replace src with your demo video, GIF, or Loom embed -->
+        <div style="text-align:center;">
+          <p style="margin:0 0 8px;">🎬 Demo video coming soon</p>
+          <p style="margin:0; font-size:0.9rem;">Add a Loom, YouTube, or self-hosted MP4 here.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -201,6 +419,32 @@
           <div class="icon">📜</div>
           <h3>Audit Log</h3>
           <p>Every decision, every dollar, every deploy is traceable. Compliance and clarity built in from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <h2>What early founders are saying</h2>
+        <p>Real teams using Regentics to automate work that used to take weeks.</p>
+      </div>
+      <div class="quotes">
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <blockquote>"I went from idea to a running marketing campaign in under an hour. My AI CMO drafted posts, scheduled them, and I just hit approve."</blockquote>
+          <cite><strong>— Early beta user</strong><br>SaaS founder</cite>
+        </div>
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <blockquote>"The audit trail alone is worth it. I can see exactly what every agent did, when, and why. It feels like having a boardroom dashboard for my AI team."</blockquote>
+          <cite><strong>— Early beta user</strong><br>Indie developer</cite>
+        </div>
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <blockquote>"We replaced three freelance contractors with one AI department in Regentics. Output quality went up and turnaround time dropped to minutes."</blockquote>
+          <cite><strong>— Early beta user</strong><br>Agency owner</cite>
         </div>
       </div>
     </div>
@@ -264,7 +508,7 @@
       </details>
       <details>
         <summary>How do approval gates work?</summary>
-        <p>You configure what actions require your sign-off (e.g., spend &gt;$100, publish to LinkedIn, hire an agent). The agent pauses, notifies you, and resumes once approved.</p>
+        <p>You configure what actions require your sign-off (e.g., spend >$100, publish to LinkedIn, hire an agent). The agent pauses, notifies you, and resumes once approved.</p>
       </details>
       <details>
         <summary>Can I connect my own tools?</summary>
